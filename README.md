@@ -11,4 +11,5 @@ Search character: !c or !character <character name>
 Search staff: !p or !person or !staff <staff name>
 Search studio: !s or !studio <studio name>
 Search user: !u or !user <user name>
+Create spoiler channel: !sp or !spoiler <topic>
 ```

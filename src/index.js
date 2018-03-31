@@ -6,6 +6,7 @@ const media = require("./media");
 const staff = require("./staff");
 const user = require("./user");
 const studio = require("./studio");
+const spoiler = require("./spoiler");
 
 const client = new Discord.Client();
 
@@ -39,7 +40,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
     args = args.join(" ");
 
-    let response = null;
+    let response;
 
     switch (command) {
         case "help":
@@ -76,6 +77,10 @@ client.on("message", async message => {
         case "user":
             response = await user.search(args);
             break;
+
+        case "sp":
+        case "spoiler":
+            return await spoiler.create(args, message.guild);
     }
 
     if (response.error) {
@@ -104,6 +109,7 @@ Search character: !c or !character <character name>
 Search staff: !p or !person or !staff <staff name>
 Search studio: !s or !studio <studio name>
 Search user: !u or !user <user name>
+Create spoiler channel: !sp or !spoiler <topic>
 GitHub: https://github.com/joshstar/AniList-Discord-Bot`
 };
 
